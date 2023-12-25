@@ -3,3 +3,11 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
+
+const toMatchImageSnapshot = configureToMatchImageSnapshot({
+    failureThreshold: 0.01, // Adjust as needed
+    failureThresholdType: 'percent',
+});
+
+expect.extend({ toMatchImageSnapshot });
